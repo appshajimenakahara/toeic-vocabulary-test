@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC英単語診断テスト | 無料でスコア換算・分析</title>
+    <meta name="description" content="無料のTOEIC英単語診断テスト。あなたの語彙力をチェックしてTOEICスコアを換算。詳細な分析結果とSNSシェア機能付き。">
+    <meta name="keywords" content="TOEIC, 英単語, 診断, テスト, 語彙力, スコア換算, 英語学習">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toeic-vocab-test.web.app/">
+    <meta property="og:title" content="TOEIC英単語診断テスト | 無料でスコア換算・分析">
+    <meta property="og:description" content="無料のTOEIC英単語診断テスト。あなたの語彙力をチェックしてTOEICスコアを換算。">
+    <meta property="og:image" content="https://toeic-vocab-test.web.app/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://toeic-vocab-test.web.app/">
+    <meta property="twitter:title" content="TOEIC英単語診断テスト | 無料でスコア換算・分析">
+    <meta property="twitter:description" content="無料のTOEIC英単語診断テスト。あなたの語彙力をチェックしてTOEICスコアを換算。">
+    <meta property="twitter:image" content="https://toeic-vocab-test.web.app/og-image.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toeic-vocab-test.web.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "TOEIC英単語診断テスト",
+        "description": "無料のTOEIC英単語診断テスト。語彙力チェックとスコア換算",
+        "url": "https://toeic-vocab-test.web.app/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <h1>TOEIC英単語診断テスト</h1>
+            <p>あなたの語彙力を診断して、TOEICスコアを予測します</p>
+        </header>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="start-container">
+                <h2>診断テストについて</h2>
+                <div class="info-box">
+                    <p>✅ 30問の英単語問題</p>
+                    <p>✅ TOEICスコア換算</p>
+                    <p>✅ 詳細な分析結果</p>
+                    <p>✅ SNSでシェア可能</p>
+                </div>
+                <p class="test-time">所要時間: 約10分</p>
+                <button id="startBtn" class="primary-btn">診断テストを開始</button>
+            </div>
+        </div>
+
+        <!-- Test Screen -->
+        <div id="testScreen" class="screen">
+            <div class="test-container">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div class="question-counter">
+                    <span id="currentQuestion">1</span> / <span id="totalQuestions">30</span>
+                </div>
+                
+                <div class="question-card">
+                    <h3 id="questionWord" class="question-word"></h3>
+                    <div id="choices" class="choices"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen">
+            <div class="result-container">
+                <h2>診断結果</h2>
+                
+                <div class="score-display">
+                    <div class="toeic-score">
+                        <h3>予想TOEICスコア</h3>
+                        <div id="toeicScore" class="score-number"></div>
+                        <div id="scoreRange" class="score-range"></div>
+                    </div>
+                    
+                    <div class="accuracy">
+                        <h3>正答率</h3>
+                        <div id="accuracy" class="accuracy-number"></div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="analysisChart"></canvas>
+                </div>
+
+                <div class="level-analysis">
+                    <h3>レベル別分析</h3>
+                    <div id="levelBreakdown" class="level-breakdown"></div>
+                </div>
+
+                <div class="share-section">
+                    <h3>結果をシェア</h3>
+                    <div class="share-buttons">
+                        <button id="shareTwitter" class="share-btn twitter">Twitter</button>
+                        <button id="shareFacebook" class="share-btn facebook">Facebook</button>
+                        <button id="shareLine" class="share-btn line">LINE</button>
+                    </div>
+                </div>
+
+                <button id="retryBtn" class="secondary-btn">もう一度挑戦</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC Part1 写真描写問題 模擬試験</title>
+    <link rel="stylesheet" href="part1-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TOEIC Part1 写真描写問題</h1>
+            <p class="subtitle">リスニングセクション Part1 模擬試験</p>
+        </header>
+
+        <main>
+            <div id="start-screen" class="screen active">
+                <div class="card">
+                    <h2>Part1 写真描写問題について</h2>
+                    <div class="info-section">
+                        <p><strong>問題数：</strong> 6問</p>
+                        <p><strong>形式：</strong> 1枚の写真について4つの短い説明文が放送されます</p>
+                        <p><strong>解答方法：</strong> 写真を最も的確に描写している文を選択してください</p>
+                    </div>
+                    <div class="instructions">
+                        <h3>受験上の注意</h3>
+                        <ul>
+                            <li>音声は1回のみ再生されます</li>
+                            <li>問題用紙に説明文は印刷されていません</li>
+                            <li>写真をよく見て、最も適切な説明を選んでください</li>
+                        </ul>
+                    </div>
+                    <button id="start-btn" class="btn btn-primary">模擬試験開始</button>
+                </div>
+            </div>
+
+            <div id="test-screen" class="screen">
+                <div class="test-header">
+                    <div class="question-counter">
+                        <span id="current-question">Question 1</span> of 6
+                    </div>
+                    <div class="timer" id="timer">
+                        <span class="timer-icon">⏱</span>
+                        <span id="time-display">00:00</span>
+                    </div>
+                </div>
+
+                <div class="card test-card">
+                    <div class="photo-container">
+                        <img id="photo" src="" alt="TOEIC Part1 Photo">
+                        <div id="photo-placeholder" class="photo-placeholder">
+                            <p>写真を読み込み中...</p>
+                        </div>
+                    </div>
+
+                    <div class="audio-section">
+                        <div class="audio-controls">
+                            <button id="play-audio" class="btn btn-audio">
+                                <span class="audio-icon">🔊</span>
+                                音声を再生
+                            </button>
+                            <div class="audio-status" id="audio-status">
+                                再生待機中
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="options-section">
+                        <div class="options-grid">
+                            <button class="option-btn" data-option="A">
+                                <span class="option-label">A</span>
+                            </button>
+                            <button class="option-btn" data-option="B">
+                                <span class="option-label">B</span>
+                            </button>
+                            <button class="option-btn" data-option="C">
+                                <span class="option-label">C</span>
+                            </button>
+                            <button class="option-btn" data-option="D">
+                                <span class="option-label">D</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="navigation">
+                        <button id="next-btn" class="btn btn-secondary" disabled>次の問題へ</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="result-screen" class="screen">
+                <div class="card">
+                    <h2>試験結果</h2>
+                    
+                    <div class="score-section">
+                        <div class="raw-score">
+                            <h3>素点</h3>
+                            <p class="score-display"><span id="correct-count">0</span> / 6</p>
+                        </div>
+                        
+                        <div class="converted-score">
+                            <h3>Part1 換算点</h3>
+                            <p class="score-display large"><span id="converted-score">0</span></p>
+                            <p class="score-note">（5〜495点満点中）</p>
+                        </div>
+                    </div>
+
+                    <div class="performance-analysis">
+                        <h3>成績分析</h3>
+                        <div class="analysis-grid">
+                            <div class="analysis-item">
+                                <span class="label">正答率</span>
+                                <span class="value" id="accuracy-rate">0%</span>
+                            </div>
+                            <div class="analysis-item">
+                                <span class="label">解答時間</span>
+                                <span class="value" id="total-time">00:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feedback" id="feedback">
+                        <h3>フィードバック</h3>
+                        <p id="feedback-text"></p>
+                    </div>
+
+                    <div class="answer-review">
+                        <h3>解答の見直し</h3>
+                        <div id="answer-list" class="answer-list"></div>
+                    </div>
+
+                    <button id="retry-btn" class="btn btn-primary">もう一度挑戦</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="part1-script.js"></script>
+</body>
+</html>
