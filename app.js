@@ -28,7 +28,7 @@ class TOEICVocabularyTest {
     this.totalQuestions = document.getElementById('totalQuestions');
     this.questionWord = document.getElementById('questionWord');
     this.choices = document.getElementById('choices');
-    this.nextBtn = document.getElementById('nextBtn');
+    // this.nextBtn = document.getElementById('nextBtn'); // Removed button
     
     // Result screen elements
     this.toeicScore = document.getElementById('toeicScore');
@@ -44,7 +44,7 @@ class TOEICVocabularyTest {
 
   bindEvents() {
     this.startBtn.addEventListener('click', () => this.startTest());
-    this.nextBtn.addEventListener('click', () => this.nextQuestion());
+    // this.nextBtn.addEventListener('click', () => this.nextQuestion()); // Removed button
     this.retryBtn.addEventListener('click', () => this.resetTest());
     
     // Share buttons
@@ -154,7 +154,7 @@ class TOEICVocabularyTest {
       this.choices.appendChild(button);
     });
     
-    this.nextBtn.style.display = 'none';
+    // this.nextBtn.style.display = 'none'; // Removed button
   }
 
   selectAnswer(selectedIndex) {
@@ -180,12 +180,12 @@ class TOEICVocabularyTest {
       }
     });
     
-    this.nextBtn.disabled = false;
+    // this.nextBtn.disabled = false; // Removed button
     
-    // Auto-advance to next question after 1.5 seconds
+    // Auto-advance to next question after 1 second
     setTimeout(() => {
       this.nextQuestion();
-    }, 1500);
+    }, 1000);
   }
 
   nextQuestion() {
